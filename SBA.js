@@ -72,7 +72,7 @@ const CourseInfo = { id: 451, name: "Introduction to JavaScript" };
       }
     }
   ];
-    function isValidID(){
+    function isValidID(CourseInfo,AssignmentGroup){
         try{
             if(CourseInfo.id===AssignmentGroup.courseId){
                 return true;
@@ -83,10 +83,42 @@ const CourseInfo = { id: 451, name: "Introduction to JavaScript" };
         ``}
        
         }
-        catch(Error){
-            console.Error(Error);
+        catch(e){
+            console.error(e);
         }
     }
-    function getAvg(){}
-    function isOnTime(){}
+    function getAvg(points_possible,score){
+      try{
+        if(points_possible !== 0){
+
+          if(isOnTime())return(score-(points_possible*.9))/points_possible;
+        }
+        else{
+          throw new Error("Assignments cannot be worth 0 points");
+        }
+      }
+      catch(e){
+        console.error(e);
+      }
+    }
+    function isOnTime(due_at,submitted_at){
+      try{
+        const TEMPDATE1 = new Date(due_at);
+        const TEMPDATE2 = new Date(submitted_at);
+        const isLate=TEMPDATE1>=TEMPDATE2;
+        if(isLate){
+          
+        }
+        else{
+          throw new Error("bad date imput");
+        }
+      }
+      catch(e){
+        console.error(e);
+      }
+    }
+    function getLearnerData(CourseInfo,AssignmentGroup,LearnerSubmissions){
+
+    }
+  
   
